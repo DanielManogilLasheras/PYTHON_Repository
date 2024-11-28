@@ -1,6 +1,6 @@
 #Exercise One
 from itertools import filterfalse
-from operator import truediv
+from xml.etree.ElementTree import tostring
 
 print(type(6))
 print (type(6.0))
@@ -86,3 +86,102 @@ print (over_18 or over_21)
 print(over_18 and over_21)
 print (not over_18)
 print (not over_21 or(over_21 or over_18))
+
+#Exercise Twelve
+print('Enter a number to see if it\' a perfect square')
+#number = input()
+number = 9
+number = abs(int(number))
+i = -1
+square = False
+while i <= number**(0.5):
+    i+=1
+    if i*i == number:
+        print ('the square root of' , number , 'is' , i , '.')
+    else:
+        print('', number, 'is not a perfect square')
+
+#Exercise Thirteen
+print('A one bedroom in the Bay Area listed at $599.000')
+print('Enter your first offer on the house')
+offer = 500000
+#offer = abs(int(input()))
+print('Enter your best offer on the house')
+#best = abs(int(input()))
+best = 690000
+print('How much do you want to offer each time?')
+#increment = abs(int(input()))
+increment = 50000
+offer_accepted = False
+while offer <= best:
+    if offer >= 650000:
+        offer_accepted = True
+        print ('Your offer of' , offer , 'has been accepted')
+        break
+    else:
+        print('We\'re sorry, your offer of' , offer , 'has not been accepted')
+        offer += increment
+
+#Exercise Fourteen
+for i in 'Portland':
+    print (i)
+
+#Exercise fifteen
+for i in range(1,10):
+    print(i)
+
+for i in range(10): print(i)
+for i in range (0 , 10 , 2):
+    print(i)
+for i in range (3 , 0 , -1):
+    print(i)
+name = 'Dani'
+for i in range (3):
+    for j in name:
+        print(j)
+
+#Exercise Sixteen
+for num in range(10 , 100):
+    if num % 2 == 0:
+        continue
+    if num % 3 == 0:
+        continue
+    print(num)
+
+#Exercise seventeen
+print('Hi, I\'m the first conversational bot')
+print('What is your name?')
+##answerTwo = input()
+answerTwo = 'Daniel'
+print('Do you like tomatoes' , answerTwo , '?')
+#answer = input()
+answer = 'Yes'
+check = False
+while not check:
+    if answer.lower() == 'yes':
+        print('Very nice' , answerTwo , 'I like tomatoes too')
+        check = True
+    elif answer.lower() =='no':
+        print('Not everybody can have g'
+              'ood taste')
+        check = True
+    else:
+        print('I did not understand the answer, repeat')
+        answer=input()
+
+print('Hi, I\'m the second conversational bot')
+print('On a scale of 1 to 10, how smart do you think you are')
+answer = input()
+check = False
+while not check:
+    check = True
+    if type(answer) !=  type(int) or int(answer) <=0 or int(answer) >=11:
+        print('That\'s not a valid number, try again')
+        answer = input()
+        check = False
+    elif int(answer) in range (1,3):
+        print('I guess you are not very smart')
+    elif int(answer) in range(4,6):
+        print('So you are average')
+    elif int(answer) in range(7,10):
+        print('Wow you are so smart')
