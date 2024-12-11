@@ -153,3 +153,69 @@ def countdown(n):
         print(n)
         return countdown(n - 1)
 countdown(3)
+
+#Exercise 12
+import time
+stored_results = {}
+def sum_to_n(n):
+    start_time = time.perf_counter()
+    result = 0
+    for i in reversed(range(n)):
+        if i + 1 in stored_results:
+            print('Stopping sum at %s because we have previously computed it' % str(i + 1))
+            result += stored_results[i + 1]
+            break
+        else:
+            result += i + 1
+    stored_results[n] = result
+    print(time.perf_counter() - start_time, "seconds")
+print(sum_to_n(5))
+
+score = 0
+#Exercise 13
+def funcglobal():
+
+    global score
+    score = 10
+print(score)
+
+#Exercise 14
+h = 4
+def myfunc():
+    h = 3
+    def inner():
+        nonlocal h
+        print(h)
+    inner()
+myfunc()
+
+#Exercise 15 lambda arguments : expresion
+
+add_up = lambda x, y: x + y
+print(add_up(2, 5))
+
+#Exercise 16
+first_item = lambda my_list: my_list[0]
+print(first_item(['cat','dog','mouse']))
+
+#Exerise 17
+names = ['Magda','Jose','Anne']
+mapNames = list(map(len, names))
+print(sum(mapNames) / len(mapNames))
+
+#Exercise 18
+list(filter(lambda name: len(name) == 3 , names))
+
+#Exercise 19
+nums = list(range(1000))
+filtered = filter(lambda x : x % 3 == 0 or x % 7 == 0, nums)
+print(sum(filtered))
+
+names = ['Ming','Jennifer','Andrew','Boris']
+sorted(names, key=lambda x : len(x))
+
+
+
+
+
+
